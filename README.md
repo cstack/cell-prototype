@@ -45,7 +45,17 @@ Each command is made up of three parts:
 | B      | SUPPRESS | UP B       |
 | -      | SLEEP    |            |
 
-Each cell executes its commands starting from the first one. Each cycle, every cell looks for its next active command and executes it.
+Each cell executes its commands starting from the first one. Each cycle, every cell increments its program counter to its next active command and executes it. The color of a command is used by the SUPPRESS and ACTIVATE commands. The colors are:
+
+| Abbreviation  | Color     |
+| ------------- | --------- |
+| R             | Red       |
+| B             | Blue      |
+| G             | Green     |
+| O             | Orange    |
+| P             | Purple    |
+| Y             | Yellow    |
+| -             | Colorless |
 
 ## Commands
 ### SPLIT direction
@@ -78,7 +88,7 @@ Like SUPPRESS, but makes commands active instead of inactive.
 ## Order of operations
 - Each cycle:
   - For each cell, from oldest to youngest:
-    - Look for the next active command after the one that was previously executed. Loops back to the beginning after the last command. If there are no active commands, do nothing.
+    - Increment the cell's program counter to the next active command (excluding labels). Loops back to the beginning after the last command. If there are no active commands, do nothing.
     - Execute the command.
 
 ## Challenges
