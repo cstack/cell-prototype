@@ -140,4 +140,63 @@ describe("CellEngine.parse  ", function() {
       program: [],
     });
   });
+
+  it("typechecks number of parameters", function() {
+    var programText = "- SPLIT\n- SPLIT UP R"
+    var result = parse(programText);
+
+    expect(result).to.deep.equal({
+      success: false,
+      errors: [
+        "SPLIT expected 1 parameters but received 0",
+        "SPLIT expected 1 parameters but received 2",
+      ],
+      program: [],
+    });
+  });
+
+  it("typechecks directional parameters", function() {
+    var programText = "- SPLIT UP\n- SPLIT OP\n- SPLIT SELF\n- ACTIVATE SELF R\n"
+    var result = parse(programText);
+
+    expect(result).to.deep.equal({
+      success: false,
+      errors: [
+        "parameter 0 for SPLIT should be a direction",
+        "parameter 0 for SPLIT should be a direction",
+      ],
+      program: [
+        {
+          color: "-",
+          opCode: "SPLIT",
+          parameters: ["UP"],
+        },
+        {
+          color: "-",
+          opCode: "ACTIVATE",
+          parameters: ["SELF","R"],
+        },
+      ],
+    });
+  });
+
+  it("typechecks color parameters", function() {
+    var programText = "- ACTIVATE UP R\n- ACTIVATE UP Z\n- ACTIVATE UP -"
+    var result = parse(programText);
+
+    expect(result).to.deep.equal({
+      success: false,
+      errors: [
+        "parameter 1 for ACTIVATE should be a color",
+        "parameter 1 for ACTIVATE should be a color",
+      ],
+      program: [
+        {
+          color: "-",
+          opCode: "ACTIVATE",
+          parameters: ["UP", "R"],
+        },
+      ],
+    });
+  });
 });
