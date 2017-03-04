@@ -10,6 +10,16 @@ var opCodes = [
   "SUPPRESS",
 ];
 
+var colors = [
+  '-',
+  'B',
+  'G',
+  'O',
+  'P',
+  'R',
+  'Y',
+];
+
 function parse(programString) {
   var lines = programString.split("\n");
   var nonEmptyLines = lines.filter(function(line){
@@ -25,6 +35,13 @@ function parse(programString) {
     var parameters = parts.slice(2,parts.length);
 
     var command = {};
+
+    if (colors.indexOf(color) > -1) {
+      command.color = color;
+    } else {
+      errors.push(`Unknown color ${color}`);
+      return;
+    }
 
     if (opCodes.indexOf(opCode) > -1) {
       command.opCode = opCode;
