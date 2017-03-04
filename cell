@@ -60,17 +60,13 @@ class CLI < Thor
   def attempt_all
     list_challenges.each do |challenge|
       list_programs(challenge).each do |program|
-        attempt(challenge, program)
+        attempt_regardless_of_username(challenge, program)
       end
     end
   end
 
   desc "attempt CHALLENGE PROGRAM", "Run PROGRAM on CHALLENGE and measure record results"
   def attempt(challenge, suffix=nil)
-    unless list_challenges.include?(challenge)
-      raise "no exiting challenge named #{challenge}"
-    end
-
     if current_user.nil?
       puts "Please enter a username:"
       username = STDIN.readline
@@ -81,6 +77,15 @@ class CLI < Thor
     program = current_user
     unless suffix.nil?
       program += "_#{suffix}"
+    end
+
+    attempt_regardless_of_username(challenge, program)
+  end
+
+  no_commands do
+  def attempt_regardless_of_username(challenge, program)
+    unless list_challenges.include?(challenge)
+      raise "no exiting challenge named #{challenge}"
     end
 
     FileUtils.mkdir_p("#{challenge_path(challenge)}/#{program}")
@@ -106,25 +111,26 @@ class CLI < Thor
       end
     end
 
-    if differences == 0
-      puts "SUCCESS! (in #{cycles} cycles)"
-    else
-      puts "Result does not match (after #{cycles} cycles)"
-      puts "#{differences} differences."
+      if differences == 0
+        puts "SUCCESS! (in #{cycles} cycles)"
+      else
+        puts "Result does not match (after #{cycles} cycles)"
+        puts "#{differences} differences."
+      end
+
+      if !stable
+        puts "WARNING: Result is not stable"
+      end
+
+      update_leaderboard(challenge, program, differences, stable, cycles)
+
+      puts "target:"
+      print_target(target)
+      puts "actual:"
+      print_grid(simulation.grid, $stdout)
+      puts "Logs in:\n#{log_path}\n#{long_log_path}\n"
+      print_leaderboard(challenge, program)
     end
-
-    if !stable
-      puts "WARNING: Result is not stable"
-    end
-
-    update_leaderboard(challenge, program, differences, stable, cycles)
-
-    puts "target:"
-    print_target(target)
-    puts "actual:"
-    print_grid(simulation.grid, $stdout)
-    puts "Logs in:\n#{log_path}\n#{long_log_path}\n"
-    print_leaderboard(challenge, program)
   end
 
   desc "stats", "show challenges ordered by length of solution"
