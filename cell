@@ -26,6 +26,7 @@ class CLI < Thor
     puts "This will keep your solution in a file called #{current_user}_2.cell"
 
     puts "\n\n"
+    puts "To view the target board state for `hello, run `./cell describe hello`"
     puts "Here are the available challenges roughly ordered by difficulty:"
     self.stats
   end
