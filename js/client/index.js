@@ -3,8 +3,8 @@ const CellUI = require('./ui').CellUI;
 const React = require('react');
 const render = require('react-dom').render;
 
-function createDefaultProgram() {
-  return [];
+function createDefaultProgramText() {
+  return "- SPLIT UP\n- SPLIT DOWN";
 }
 
 function createDefaultBoard() {
@@ -27,11 +27,13 @@ function createDefaultBoard() {
 }
 
 function createModel() {
-  var program = createDefaultProgram();
+  var programText = createDefaultProgramText();
+  var program = CellEngine.parse(programText).program;
   var board = createDefaultBoard();
 
   return {
     program: program,
+    programText: programText,
     board: board,
   }
 }

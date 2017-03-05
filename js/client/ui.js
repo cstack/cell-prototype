@@ -17,26 +17,56 @@ function createProgramEditor() {
   return editorRoot
 }
 
-function createSidebar() {
-  var sidebarRoot = document.createElement("div");
-  sidebarRoot.setAttribute("id", "sidebar");
+function RunButton(model) {
+  return React.createElement(
+    "button",
+    {className: "big-button"},
+    ["Run"]
+  )
+}
 
-  var editor = createProgramEditor();
-  sidebarRoot.appendChild(editor);
+function ProgramTextBox(model) {
+  return React.createElement(
+    "textarea",
+    {id: "program-editor-textbox"},
+    [model.programText]
+  )
+}
 
-  return sidebarRoot;
+function ProgramEditor(model) {
+  var textBox = React.createElement("textarea", {key: "program-editor-textbox", id: "program-editor-textbox"});
+  return React.createElement(
+    "div",
+    {id: "program-editor"},
+    [
+      React.createElement(ProgramTextBox, {key: "program-editor-textbox", programText: model.programText}),
+      React.createElement(RunButton, {key: "run-button"})
+    ]
+  );
+}
+
+function CellDetail(model) {
+  return React.createElement(
+    "div",
+    {id: "cell-detail"},
+    [
+      "CellDetail"
+    ]
+  );
 }
 
 function Sidebar(model) {
-  // var editor = createProgramEditor();
-  // sidebarRoot.appendChild(editor);
-
-  // return sidebarRoot;
+  children = [];
+  if (model.isEditingProgram) {
+    children.push(React.createElement(ProgramEditor, {key: `program-editor`, programText: model.programText}));
+  } else {
+    children.push(React.createElement(CellDetail, {key: `cell-detail`, focusedSpace: model.focusedSpace}));
+  }
 
   return React.createElement(
     "div",
     {id: "sidebar"},
-    []
+    children
   );
 }
 
@@ -79,7 +109,7 @@ function CellUI(model) {
     {},
     [
       React.createElement(Board, Object.assign({key: 'board'}, model.board)),
-      React.createElement(Sidebar, Object.assign({key: 'sidebar'}, model.program))
+      React.createElement(Sidebar, {key: 'sidebar', programText: model.programText, isEditingProgram: true})
     ]
   );
 };
