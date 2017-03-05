@@ -1,48 +1,44 @@
 const React = require('react');
+const CellEngine = require('engine').CellEngine;
 
-function createProgramEditor() {
-  var editorRoot = document.createElement("div");
-  editorRoot.setAttribute("id", "program-editor");
+class ProgramEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {value: props.programText};
 
-  var textBox = document.createElement("textarea");
-  textBox.setAttribute("id", "program-text-box");
-  textBox.textContent = "- SPLIT UP\n- SPLIT DOWN";
-  editorRoot.appendChild(textBox);
-
-  var runButton = document.createElement("button");
-  runButton.classList.add("big-button");
-  runButton.textContent = "Run";
-  editorRoot.appendChild(runButton);
-
-  return editorRoot
-}
-
-function RunButton(model) {
-  return React.createElement(
-    "button",
-    {className: "big-button"},
-    ["Run"]
-  )
-}
-
-function ProgramTextBox(model) {
-  return React.createElement(
-    "textarea",
-    {id: "program-editor-textbox"},
-    [model.programText]
-  )
-}
-
-function ProgramEditor(model) {
-  var textBox = React.createElement("textarea", {key: "program-editor-textbox", id: "program-editor-textbox"});
-  return React.createElement(
-    "div",
-    {id: "program-editor"},
-    [
-      React.createElement(ProgramTextBox, {key: "program-editor-textbox", programText: model.programText}),
-      React.createElement(RunButton, {key: "run-button"})
-    ]
-  );
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  render() {
+    return React.createElement(
+      "form",
+      {key: "program-editor-form", id: "program-editor-form", onSubmit: this.handleSubmit},
+      [
+        React.createElement(
+          "textarea",
+          {key: "program-editor-textbox", id: "program-editor-textbox", onChange: this.handleChange, value: this.state.value}
+        ),
+        React.createElement(
+          "button",
+          {key: "program-editor-submit", className: "big-button"},
+          ["Run Program"]
+        )
+      ]
+    );
+  }
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+  handleSubmit(event) {
+    var programText = this.state.value;
+    var parseResult = CellEngine.parse(programText);
+    if (parseResult.success) {
+      this.props.handleUpdatedProgram(parseResult.program, programText);
+    } else {
+      alert(`Parse errors: ${parseResult.errors}`);
+    }
+    event.preventDefault();
+  }
 }
 
 function CellDetail(model) {
@@ -55,19 +51,38 @@ function CellDetail(model) {
   );
 }
 
-function Sidebar(model) {
-  children = [];
-  if (model.isEditingProgram) {
-    children.push(React.createElement(ProgramEditor, {key: `program-editor`, programText: model.programText}));
-  } else {
-    children.push(React.createElement(CellDetail, {key: `cell-detail`, focusedSpace: model.focusedSpace}));
+class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {isEditingProgram: true};
+    this.handleUpdatedProgram = this.handleUpdatedProgram.bind(this);
   }
+  render() {
+    var children = [];
+    if (this.state.isEditingProgram) {
+      children.push(React.createElement(
+        ProgramEditor,
+        {
+          key: `program-editor`,
+          programText: this.props.programText,
+          handleUpdatedProgram: this.handleUpdatedProgram
+        }
+      ));
+    } else {
+      children.push(React.createElement(CellDetail, {key: `cell-detail`, focusedSpace: this.props.focusedSpace}));
+    }
 
-  return React.createElement(
-    "div",
-    {id: "sidebar"},
-    children
-  );
+    return React.createElement(
+      "div",
+      {id: "sidebar"},
+      children
+    );
+  }
+  handleUpdatedProgram() {
+    this.setState({
+      isEditingProgram: false
+    });
+  }
 }
 
 function BoardSpace(model) {
