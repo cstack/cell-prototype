@@ -13,15 +13,17 @@ function createDefaultBoard() {
 
   var rows = [];
   for (var rowNum = 0; rowNum < numRows; rowNum++) {
-    var row = []
+    var spaces = []
     for (var rowCol = 0; rowCol < numCols; rowCol++) {
-      row.push(false);
+      spaces.push({containsCell: false});
     }
-    rows.push(row);
+    rows.push({spaces: spaces});
   }
-  rows[4][4] = true;
+  rows[4].spaces[4].containsCell = true;
 
-  return rows;
+  return {
+    rows: rows
+  };
 }
 
 function createModel() {

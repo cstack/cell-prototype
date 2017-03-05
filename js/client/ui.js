@@ -27,48 +27,6 @@ function createSidebar() {
   return sidebarRoot;
 }
 
-function createGrid(gridModel) {
-  var gridRootElement = document.createElement("div");
-  gridRootElement.setAttribute("id", "grid");
-
-  var numRows = 9;
-  var numCols = 9;
-
-  var gridSpaceElements = [];
-  for (var i = 0; i < numRows; i++) {
-    var rowElement = document.createElement("div");
-    rowElement.classList.add("grid-row");
-
-    var rowSpaceElements = [];
-    for (var j = 0; j < numCols; j++) {
-      var spaceElement = document.createElement("grid-space");
-      spaceElement.classList.add("grid-space");
-      rowElement.appendChild(spaceElement);
-      rowSpaceElements.push(spaceElement);
-    }
-
-    gridRootElement.appendChild(rowElement);
-    gridSpaceElements.push(rowSpaceElements);
-  }
-
-  gridModel.addListener(function(gridModel) {
-    for (var row = 0; row < numRows; row++) {
-      for (var col = 0; col < numCols; col++) {
-        var spaceElement = gridSpaceElements[row][col];
-        if (gridModel.rows[row][col]) {
-          spaceElement.classList.remove("grid-space-empty");
-          spaceElement.classList.add("grid-space-cell");
-        } else {
-          spaceElement.classList.remove("grid-space-cell");
-          spaceElement.classList.add("grid-space-empty");
-        }
-      }
-    }
-  });
-
-  return gridRootElement;
-}
-
 function Sidebar(model) {
   // var editor = createProgramEditor();
   // sidebarRoot.appendChild(editor);
@@ -82,12 +40,36 @@ function Sidebar(model) {
   );
 }
 
-function Board(model) {
-  var spaces = [];
+function BoardSpace(model) {
+  classNames = ["board-space"];
+  if (model.containsCell) {
+    classNames.push("board-space-cell");
+  } else {
+    classNames.push("board-space-empty");
+  }
   return React.createElement(
     "div",
-    {id: "grid"},
-    spaces
+    {className: classNames.join(" ")}
+  );
+}
+
+function BoardRow(model) {
+  return React.createElement(
+    "div",
+    {className: "board-row"},
+    model.spaces.map(function(space, i) {
+      return React.createElement(BoardSpace, Object.assign({key: `board-space-${model.rowNum}-${i}`}, space));
+    })
+  );
+}
+
+function Board(model) {
+  return React.createElement(
+    "div",
+    {id: "board"},
+    model.rows.map(function(row, i) {
+      return React.createElement(BoardRow, Object.assign({key: `board-row-${i}`, rowNum: i}, row));
+    })
   );
 }
 
@@ -96,8 +78,8 @@ function CellUI(model) {
     "div",
     {},
     [
-      React.createElement(Board, {key: 'board'}, model.board),
-      React.createElement(Sidebar, {key: 'sidebar'}, model.program)
+      React.createElement(Board, Object.assign({key: 'board'}, model.board)),
+      React.createElement(Sidebar, Object.assign({key: 'sidebar'}, model.program))
     ]
   );
 };
