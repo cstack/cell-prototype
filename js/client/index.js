@@ -1,7 +1,13 @@
 const CellEngine = require('engine').CellEngine;
 const CellUI = require('./ui').CellUI;
+const React = require('react');
+const render = require('react-dom').render;
 
-function createGridModel() {
+function createDefaultProgram() {
+  return [];
+}
+
+function createDefaultBoard() {
   var numRows = 9;
   var numCols = 9;
 
@@ -15,28 +21,22 @@ function createGridModel() {
   }
   rows[4][4] = true;
 
-  var data = {
-    rows: rows,
-  }
+  return rows;
+}
 
-  var notifyListener = function(callback) {
-    callback(data);
-  }
+function createModel() {
+  var program = createDefaultProgram();
+  var board = createDefaultBoard();
 
-  var listeners = [];
   return {
-    addListener: function(callback) {
-      listeners.push(callback);
-      notifyListener(callback);
-    },
-    notifyListeners: function() {
-      listeners.forEach(notifyListener);
-    }
+    program: program,
+    board: board,
   }
 }
 
-(function() {
-  var gridModel = createGridModel();
-  var UIRoot = CellUI.create(gridModel);
-  document.body.appendChild(UIRoot);
-})();
+var app = React.createElement(
+  CellUI,
+  createModel()
+);
+
+render(app, document.getElementById("app"));

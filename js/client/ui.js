@@ -1,3 +1,5 @@
+const React = require('react');
+
 function createProgramEditor() {
   var editorRoot = document.createElement("div");
   editorRoot.setAttribute("id", "program-editor");
@@ -67,19 +69,37 @@ function createGrid(gridModel) {
   return gridRootElement;
 }
 
-var CellUI = {
-  create: function(gridModel) {
-    var UIRoot = document.createElement("div");
-    UIRoot.setAttribute("id", "cell-root");
+function Sidebar(model) {
+  // var editor = createProgramEditor();
+  // sidebarRoot.appendChild(editor);
 
-    var grid = createGrid(gridModel);
-    var sidebar = createSidebar();
+  // return sidebarRoot;
 
-    UIRoot.appendChild(grid);
-    UIRoot.appendChild(sidebar);
+  return React.createElement(
+    "div",
+    {id: "sidebar"},
+    []
+  );
+}
 
-    return UIRoot;
-  }
+function Board(model) {
+  var spaces = [];
+  return React.createElement(
+    "div",
+    {id: "grid"},
+    spaces
+  );
+}
+
+function CellUI(model) {
+  return React.createElement(
+    "div",
+    {},
+    [
+      React.createElement(Board, {key: 'board'}, model.board),
+      React.createElement(Sidebar, {key: 'sidebar'}, model.program)
+    ]
+  );
 };
 
 exports.CellUI = CellUI;
