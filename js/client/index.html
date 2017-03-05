@@ -26,6 +26,19 @@ body {
   min-width: 200px;
   height: 100vh;
   background: #EEEEEE;
+  display: flex;
+}
+
+#program-editor {
+  display: flex;
+  flex-direction: column;
+}
+
+#program-text-box {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 200px;
+  max-height: 400px;
 }
 
 .grid-row {
@@ -38,6 +51,18 @@ body {
 .grid-space {
   flex-grow: 1;
   border-right: 1px solid black;
+}
+
+.grid-space-cell {
+  background-color: #FFFFFF;
+}
+
+.grid-space-empty {
+  background-color: #999999;
+}
+
+.big-button {
+  height: 50px;
 }
 </style>
 </head>
