@@ -41,13 +41,49 @@ class ProgramEditor extends React.Component {
   }
 }
 
-function CellDetail(model) {
+function Command(props) {
+  var string = "";
+  string += `${props.command.color} ${props.command.opCode}`;
+  if (props.command.parameters.length > 0) {
+    string += " " + props.command.parameters.join(" ");
+  }
+  return React.createElement(
+    "li",
+    {},
+    [string]
+  );
+}
+
+function CommandList(props) {
+  return React.createElement(
+    "ul",
+    {},
+    props.commands.map(function(command, i) {
+      return React.createElement(
+        "li",
+        {key: `command-list-${i}`},
+        [
+          React.createElement(
+            Command,
+            {key: "command-list-${i}-command", command: command}
+          )
+        ]
+      );
+    })
+  );
+}
+
+function CellDetail(props) {
+  var children = [];
+  if (props.focusedSpace === undefined || props.focusedSpace.commands === undefined) {
+    children.push(React.createElement("p", {key: "cell-detail-null-state"}, ["Select a cell for more details"]));
+  } else {
+    children.push(React.createElement(CommandList, {key: `command-list`, commands: props.focusedSpace.commands}));
+  }
   return React.createElement(
     "div",
-    {id: "cell-detail"},
-    [
-      "CellDetail"
-    ]
+    {id: "cell-detail", key: "cell-detail"},
+    children
   );
 }
 
@@ -85,48 +121,82 @@ class Sidebar extends React.Component {
   }
 }
 
-function BoardSpace(model) {
+function BoardSpace(props) {
   classNames = ["board-space"];
-  if (model.containsCell) {
+  if (props.space.containsCell) {
     classNames.push("board-space-cell");
   } else {
     classNames.push("board-space-empty");
   }
+  if (props.focused) {
+    classNames.push("board-space-focused");
+  }
   return React.createElement(
     "div",
-    {className: classNames.join(" ")}
+    {className: classNames.join(" "), onClick: props.onClick}
   );
 }
 
-function BoardRow(model) {
+function BoardRow(props) {
   return React.createElement(
     "div",
     {className: "board-row"},
-    model.spaces.map(function(space, i) {
-      return React.createElement(BoardSpace, Object.assign({key: `board-space-${model.rowNum}-${i}`}, space));
+    props.row.spaces.map(function(space, colNum) {
+      var onClick = function() {
+        props.onClick(colNum);
+      }
+      var focused = (props.focusedColNum === colNum);
+      return React.createElement(BoardSpace, {key: `board-space-${props.rowNum}-${colNum}`,space: space, onClick: onClick, focused: focused});
     })
   );
 }
 
-function Board(model) {
-  return React.createElement(
-    "div",
-    {id: "board"},
-    model.rows.map(function(row, i) {
-      return React.createElement(BoardRow, Object.assign({key: `board-row-${i}`, rowNum: i}, row));
-    })
-  );
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return React.createElement(
+      "div",
+      {id: "board"},
+      this.props.board.rows.map((row, rowNum) => {
+        var onClick = (colNum) => {
+          this.props.onSpaceSelected(rowNum, colNum);
+        }
+        var focusedColNum = undefined;
+        if (this.props.focusedCoordinates[0] === rowNum) {
+          focusedColNum = this.props.focusedCoordinates[1]
+        }
+        return React.createElement(BoardRow, {key: `board-row-${rowNum}`, rowNum: rowNum, row: row, onClick: onClick, focusedColNum: focusedColNum});
+      })
+    );
+  }
 }
 
-function CellUI(model) {
-  return React.createElement(
-    "div",
-    {},
-    [
-      React.createElement(Board, Object.assign({key: 'board'}, model.board)),
-      React.createElement(Sidebar, {key: 'sidebar', programText: model.programText, isEditingProgram: true})
-    ]
-  );
+class CellUI extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {focusedCoordinates: [4,4]};
+    this.onSpaceSelected = this.onSpaceSelected.bind(this);
+  }
+  render() {
+    var focusedSpace = undefined;
+    if (this.state.focusedCoordinates !== undefined) {
+      focusedSpace = this.props.board.rows[this.state.focusedCoordinates[0]].spaces[this.state.focusedCoordinates[1]];
+    }
+
+    return React.createElement(
+      "div",
+      {},
+      [
+        React.createElement(Board, {key: 'board', board: this.props.board, onSpaceSelected: this.onSpaceSelected, focusedCoordinates: this.state.focusedCoordinates}),
+        React.createElement(Sidebar, {key: 'sidebar', programText: this.props.programText, isEditingProgram: true, focusedSpace: focusedSpace})
+      ]
+    );
+  }
+  onSpaceSelected(rowNum, colNum) {
+    this.setState({focusedCoordinates: [rowNum, colNum]});
+  }
 };
 
 exports.CellUI = CellUI;

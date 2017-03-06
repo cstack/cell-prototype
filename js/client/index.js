@@ -7,7 +7,7 @@ function createDefaultProgramText() {
   return "- SPLIT UP\n- SPLIT DOWN";
 }
 
-function createDefaultBoard() {
+function createDefaultBoard(program) {
   var numRows = 9;
   var numCols = 9;
 
@@ -20,6 +20,7 @@ function createDefaultBoard() {
     rows.push({spaces: spaces});
   }
   rows[4].spaces[4].containsCell = true;
+  rows[4].spaces[4].commands = program;
 
   return {
     rows: rows
@@ -29,7 +30,7 @@ function createDefaultBoard() {
 function createModel() {
   var programText = createDefaultProgramText();
   var program = CellEngine.parse(programText).program;
-  var board = createDefaultBoard();
+  var board = createDefaultBoard(program);
 
   return {
     program: program,
