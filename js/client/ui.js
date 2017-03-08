@@ -48,7 +48,7 @@ function Command(props) {
     string += " " + props.command.parameters.join(" ");
   }
   return React.createElement(
-    "li",
+    "span",
     {},
     [string]
   );
@@ -92,6 +92,7 @@ class Sidebar extends React.Component {
     super(props);
     this.state = {isEditingProgram: true};
     this.handleUpdatedProgram = this.handleUpdatedProgram.bind(this);
+    this.handleEditProgram = this.handleEditProgram.bind(this);
   }
   render() {
     var children = [];
@@ -106,6 +107,17 @@ class Sidebar extends React.Component {
       ));
     } else {
       children.push(React.createElement(CellDetail, {key: `cell-detail`, focusedSpace: this.props.focusedSpace}));
+      children.push(React.createElement(
+        "div",
+        {key: "edit-program"},
+        [
+          React.createElement(
+            "button",
+            {key: "edit-program-button", className: "big-button", onClick: this.handleEditProgram},
+            ["Edit Program"]
+          )
+        ]
+      ));
     }
 
     return React.createElement(
@@ -117,6 +129,11 @@ class Sidebar extends React.Component {
   handleUpdatedProgram() {
     this.setState({
       isEditingProgram: false
+    });
+  }
+  handleEditProgram() {
+    this.setState({
+      isEditingProgram: true
     });
   }
 }
