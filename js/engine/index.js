@@ -116,13 +116,51 @@ function parse(programString) {
   };
 }
 
+function initialBoard() {
+  var board = [];
+  for (var i = 0; i < 9; i++) {
+    var row = [];
+    for (var j = 0; j < 9; j++) {
+      row.push({cell: undefined});
+    }
+    board.push(row);
+  }
+  var firstCell = {programCounter: 0, rowNum: 4, colNum: 4, id: 0};
+  board[4][4].cell = firstCell;
+  var cells = [firstCell];
+
+  return {
+    board: board,
+    cells: [],
+    next_id: 1
+  };
+}
+
+function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function nextState(currentState) {
+  return clone(currentState);
+}
+
+function simulate(program) {
+  var states = [];
+  var state = initialBoard();
+  var cyclesElapsed = 0;
+  while (cyclesElapsed < 20) {
+    states.push(state);
+    state = nextState(state);
+    cyclesElapsed += 1;
+  }
+  return {
+    states: states,
+  };
+}
+
 exports.CellEngine = {
   parse: parse,
-  simulate: function(program) {
-    return {
-      states: [],
-    };
-  },
+  simulate: simulate,
   judge: function(simulation, target) {
     return {
       solution: true,
