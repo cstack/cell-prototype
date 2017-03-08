@@ -15,12 +15,13 @@ function createDefaultBoard(program) {
   for (var rowNum = 0; rowNum < numRows; rowNum++) {
     var spaces = []
     for (var rowCol = 0; rowCol < numCols; rowCol++) {
-      spaces.push({containsCell: false});
+      spaces.push({cell: undefined});
     }
     rows.push({spaces: spaces});
   }
-  rows[4].spaces[4].containsCell = true;
-  rows[4].spaces[4].commands = program;
+  rows[4].spaces[4].cell = {
+    commands: program
+  };
 
   return {
     rows: rows
@@ -33,7 +34,6 @@ function createModel() {
   var board = createDefaultBoard(program);
 
   return {
-    program: program,
     programText: programText,
     board: board,
   }
