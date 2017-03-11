@@ -26,8 +26,21 @@ function printState(state) {
     });
     process.stdout.write("\n");
   });
-  state.cells.forEach(function(cell, i) {
+  state.cells.forEach((cell, i) => {
     process.stdout.write(`${pad(cell.id, 2)}\n`);
+
+    state.program.forEach((command, j) => {
+      if (cell.programCounter == j) {
+        process.stdout.write("--> ");
+      } else {
+        process.stdout.write("    ");
+      }
+      process.stdout.write(`${command.color} ${command.opCode}`);
+      command.parameters.forEach((parameter => {
+        process.stdout.write(` ${parameter}`);
+      }));
+      process.stdout.write("\n");
+    });
   });
 }
 
@@ -40,7 +53,7 @@ function printSimulation(simulation) {
 
 var fixtureName = process.argv[2];
 var programText = bufferFile(`simulation_tests/${fixtureName}/program.cell`);
-var program = parse(programText);
+var program = parse(programText).program;
 var simulation = simulate(program);
 
 printSimulation(simulation);

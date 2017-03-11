@@ -116,7 +116,7 @@ function parse(programString) {
   };
 }
 
-function initialBoard() {
+function initialState(program) {
   var board = [];
   for (var i = 0; i < 9; i++) {
     var row = [];
@@ -131,8 +131,9 @@ function initialBoard() {
 
   return {
     board: board,
-    cells: [],
-    next_id: 1
+    cells: [firstCell],
+    next_id: 1,
+    program: program
   };
 }
 
@@ -146,7 +147,7 @@ function nextState(currentState) {
 
 function simulate(program) {
   var states = [];
-  var state = initialBoard();
+  var state = initialState(program);
   var cyclesElapsed = 0;
   while (cyclesElapsed < 20) {
     states.push(state);
