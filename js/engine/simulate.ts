@@ -5,6 +5,7 @@ declare var __dirname: any
 declare var process: any
 var parse = require("./index.js").CellEngine.parse;
 var simulate = require("./index.js").CellEngine.simulate;
+var commandToString = require("./index.js").CellEngine.commandToString;
 
 var fs = require('fs');
 var path = require('path');
@@ -40,10 +41,7 @@ function printState(state: State) {
       } else {
         process.stdout.write("    ");
       }
-      process.stdout.write(`${command.color} ${OpCode[command.opCode]}`);
-      command.parameters.forEach((parameter => {
-        process.stdout.write(` ${parameter}`);
-      }));
+      process.stdout.write(commandToString(command));
       process.stdout.write("\n");
     });
   });

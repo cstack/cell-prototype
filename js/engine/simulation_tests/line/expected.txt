@@ -44,19 +44,19 @@ Cycle 2
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 3
 .. .. .. .. .. .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
 .. .. .. .. .. .. .. .. .. 
 .. .. .. .. .. .. .. .. .. 
 00
@@ -66,26 +66,23 @@ Cycle 3
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
-    - SPLIT UP
---> - SPLIT DOWN
-05
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 4
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
 .. .. .. .. .. .. .. .. .. 
 00
 --> - SPLIT UP
@@ -94,33 +91,30 @@ Cycle 4
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
-07
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 5
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
-.. .. .. .. 08 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
 00
     - SPLIT UP
 --> - SPLIT DOWN
@@ -128,36 +122,30 @@ Cycle 5
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 05
---> - SPLIT UP
-    - SPLIT DOWN
-06
---> - SPLIT UP
-    - SPLIT DOWN
-07
     - SPLIT UP
 --> - SPLIT DOWN
-08
+06
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 6
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
-.. .. .. .. 08 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
 00
 --> - SPLIT UP
     - SPLIT DOWN
@@ -165,36 +153,33 @@ Cycle 6
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 05
-    - SPLIT UP
---> - SPLIT DOWN
-06
-    - SPLIT UP
---> - SPLIT DOWN
-07
 --> - SPLIT UP
     - SPLIT DOWN
-08
+06
+--> - SPLIT UP
+    - SPLIT DOWN
+07
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 7
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
-.. .. .. .. 08 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
 00
     - SPLIT UP
 --> - SPLIT DOWN
@@ -202,35 +187,32 @@ Cycle 7
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
-08
-    - SPLIT UP
---> - SPLIT DOWN
 Cycle 8
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -239,20 +221,20 @@ Cycle 8
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -260,14 +242,14 @@ Cycle 8
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 9
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -276,20 +258,20 @@ Cycle 9
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
@@ -297,14 +279,14 @@ Cycle 9
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 10
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -313,20 +295,20 @@ Cycle 10
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -334,14 +316,14 @@ Cycle 10
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 11
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -350,20 +332,20 @@ Cycle 11
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
@@ -371,14 +353,14 @@ Cycle 11
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 12
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -387,20 +369,20 @@ Cycle 12
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -408,14 +390,14 @@ Cycle 12
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 13
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -424,20 +406,20 @@ Cycle 13
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
@@ -445,14 +427,14 @@ Cycle 13
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 14
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -461,20 +443,20 @@ Cycle 14
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -482,14 +464,14 @@ Cycle 14
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 15
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -498,20 +480,20 @@ Cycle 15
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
@@ -519,14 +501,14 @@ Cycle 15
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 16
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -535,20 +517,20 @@ Cycle 16
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -556,14 +538,14 @@ Cycle 16
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 17
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -572,20 +554,20 @@ Cycle 17
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN
@@ -593,14 +575,14 @@ Cycle 17
     - SPLIT UP
 --> - SPLIT DOWN
 Cycle 18
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
 --> - SPLIT UP
@@ -609,20 +591,20 @@ Cycle 18
     - SPLIT UP
 --> - SPLIT DOWN
 02
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 03
 --> - SPLIT UP
     - SPLIT DOWN
 04
+    - SPLIT UP
+--> - SPLIT DOWN
+05
 --> - SPLIT UP
     - SPLIT DOWN
-05
-    - SPLIT UP
---> - SPLIT DOWN
 06
-    - SPLIT UP
---> - SPLIT DOWN
+--> - SPLIT UP
+    - SPLIT DOWN
 07
 --> - SPLIT UP
     - SPLIT DOWN
@@ -630,14 +612,14 @@ Cycle 18
 --> - SPLIT UP
     - SPLIT DOWN
 Cycle 19
-.. .. .. .. 07 .. .. .. .. 
-.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 04 .. .. .. .. 
 .. .. .. .. 03 .. .. .. .. 
 .. .. .. .. 01 .. .. .. .. 
 .. .. .. .. 00 .. .. .. .. 
 .. .. .. .. 02 .. .. .. .. 
-.. .. .. .. 04 .. .. .. .. 
-.. .. .. .. 06 .. .. .. .. 
+.. .. .. .. 05 .. .. .. .. 
+.. .. .. .. 07 .. .. .. .. 
 .. .. .. .. 08 .. .. .. .. 
 00
     - SPLIT UP
@@ -646,20 +628,20 @@ Cycle 19
 --> - SPLIT UP
     - SPLIT DOWN
 02
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 03
     - SPLIT UP
 --> - SPLIT DOWN
 04
+--> - SPLIT UP
+    - SPLIT DOWN
+05
     - SPLIT UP
 --> - SPLIT DOWN
-05
---> - SPLIT UP
-    - SPLIT DOWN
 06
---> - SPLIT UP
-    - SPLIT DOWN
+    - SPLIT UP
+--> - SPLIT DOWN
 07
     - SPLIT UP
 --> - SPLIT DOWN

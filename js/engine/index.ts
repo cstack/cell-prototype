@@ -308,6 +308,15 @@ function simulate(program: Array<Command>): Simulation {
   };
 }
 
+function commandToString(command: Command): string {
+  let result: string = `${command.color} ${OpCode[command.opCode]}`;
+  command.parameters.forEach((parameter => {
+    result += ` ${parameter}`;
+  }));
+
+  return result;
+}
+
 declare var exports: any
 exports.CellEngine = {
   parse: parse,
@@ -319,4 +328,5 @@ exports.CellEngine = {
       cycles: 1,
     };
   },
+  commandToString: commandToString,
 };
