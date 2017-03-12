@@ -1,4 +1,5 @@
-///<reference path="index.d.ts" />
+import { Board, OpCode, State } from "."
+
 declare var require: any
 declare var __dirname: any
 declare var process: any
@@ -39,7 +40,7 @@ function printState(state: State) {
       } else {
         process.stdout.write("    ");
       }
-      process.stdout.write(`${command.color} ${command.opCode}`);
+      process.stdout.write(`${command.color} ${OpCode[command.opCode]}`);
       command.parameters.forEach((parameter => {
         process.stdout.write(` ${parameter}`);
       }));

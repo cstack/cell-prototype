@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
-`tsc index.ts`
-`tsc simulate.ts`
+# `tsc index.ts`
+# `tsc simulate.ts`
 
 expected_path = "simulation_tests/line/expected.txt"
 actual_path = "simulation_tests/line/actual.txt"

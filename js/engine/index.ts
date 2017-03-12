@@ -1,4 +1,4 @@
-///<reference path="index.d.ts" />
+export {Board, OpCode, State}
 
 enum Color {
   B,
@@ -26,6 +26,52 @@ enum OpCode {
   SLEEP,
   SPLIT,
   SUPPRESS
+}
+
+interface Command {
+  color: Color,
+  opCode: OpCode,
+  parameters: Array<string>
+}
+
+interface Cell {
+  programCounter: number,
+  id: number,
+  activeMap: Array<boolean>,
+  address: Address,
+  isNew: boolean
+}
+
+interface Space {
+  cell: Cell,
+}
+
+interface Address {
+  row: number,
+  col: number
+}
+
+interface State {
+  board: Board,
+  cells: Array<Cell>,
+  nextId: number,
+  program: Array<Command>
+}
+
+interface Simulation {
+  states: Array<State>
+}
+
+interface Board {
+  numRows: number,
+  numCols: number,
+  spaces: Array<Array<Space>>
+}
+
+interface ParseResult {
+  success: boolean,
+  errors: Array<string>,
+  program: Array<Command>
 }
 
 const colorParamter = {
@@ -75,7 +121,7 @@ const OP_CODES = {
   SUPPRESS: [directionOrSelfParamter, colorParamter],
 };
 
-function parse(programString: string) {
+function parse(programString: string): ParseResult {
   var lines = programString.split("\n");
   var nonEmptyLines = lines.filter(function(line){
     return line.length > 0;
@@ -103,7 +149,7 @@ function parse(programString: string) {
     }
 
     if (Object.keys(OP_CODES).indexOf(opCode) > -1) {
-      command.opCode = opCode;
+      command.opCode = OpCode[opCode];
     } else {
       errors.push(`Unknown op code ${opCode}`);
       return;
@@ -163,7 +209,8 @@ function initialState(program: Array<Command>): State {
     programCounter: 0,
     id: 0,
     activeMap: program.map(()=>true),
-    address: {row: 4, col: 4}
+    address: {row: 4, col: 4},
+    isNew: true
   };
   board.spaces[4][4].cell = firstCell;
   var cells = [firstCell];
@@ -215,16 +262,25 @@ function nextState(currentState: State): State {
   };
 
   newState.cells.forEach((cell) => {
+    cell.isNew = false;
+  });
+
+  newState.cells.forEach((cell) => {
+    if (cell.isNew) { return; }
     if (cell.activeMap[cell.programCounter] === true) {
       let command: Command = program[cell.programCounter];
-      if (command.opCode == OpCode[OpCode.SPLIT]) {
+      if (command.opCode == OpCode.SPLIT) {
         let direction: Direction = Direction[command.parameters[0]];
         let target: Address = relativeSpace(board, cell.address, direction);
         if (target !== undefined && board.spaces[target.row][target.col].cell === undefined) {
-          let newCell: Cell = clone(cell);
-          newCell.id = newState.nextId;
+          let newCell: Cell = {
+            programCounter: 0,
+            id: newState.nextId,
+            activeMap: clone(cell.activeMap),
+            address: target,
+            isNew: true
+          }
           newState.nextId += 1;
-          newCell.address = target;
           board.spaces[target.row][target.col].cell = newCell;
           cells.push(newCell);
         }
