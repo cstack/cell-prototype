@@ -1,3 +1,7 @@
+///<reference path="index.d.ts" />
+declare var require: any
+declare var __dirname: any
+declare var process: any
 var parse = require("./index.js").CellEngine.parse;
 var simulate = require("./index.js").CellEngine.simulate;
 
@@ -14,8 +18,8 @@ function pad(num, size) {
   return s;
 }
 
-function printState(state) {
-  state.board.forEach(function(row, rowNum) {
+function printState(state: State) {
+  state.board.spaces.forEach(function(row, rowNum) {
     row.forEach(function(space, colNum) {
       if (space.cell === undefined) {
         process.stdout.write("..");
