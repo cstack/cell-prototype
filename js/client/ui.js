@@ -42,11 +42,7 @@ class ProgramEditor extends React.Component {
 }
 
 function Command(props) {
-  var string = "";
-  string += `${props.command.color} ${props.command.opCode}`;
-  if (props.command.parameters.length > 0) {
-    string += " " + props.command.parameters.join(" ");
-  }
+  var string = CellEngine.commandToString(props.command);
   return React.createElement(
     "span",
     {},
