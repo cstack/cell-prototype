@@ -3,8 +3,8 @@ import * as Engine from "../engine";
 
 interface BoardProps {
   board: Engine.Board,
-  focusedCoordinates: Engine.BoardPosition,
-  onSpaceSelected: (pos:Engine.BoardPosition) => void,
+  focusedCoordinates: Engine.Coordinates,
+  onSpaceSelected: (pos:Engine.Coordinates) => void,
 };
 interface BoardState {
 };

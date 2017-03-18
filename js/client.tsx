@@ -6,7 +6,7 @@ import CellUI from "./components/cell-ui";
 let programText: string = `- SPLIT UP
 - SPLIT DOWN`;
 
-let board: Engine.Board = {};
+let board: Engine.Board = new Engine.Board();
 
 let app = <CellUI programText={programText} board={board} />;
 
