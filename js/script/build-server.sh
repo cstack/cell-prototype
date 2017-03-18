@@ -1,3 +1,3 @@
 set -x
-tsc server.ts || exit 1
+tsc server.ts --noImplicitAny || exit 1
 node server.js
