@@ -5,13 +5,7 @@ interface CellUIState {};
 
 class CellUI extends React.Component<CellUIProps, CellUIState> {
   render() {
-    return React.createElement(
-      "div",
-      {id: "cell-ui"},
-      [
-        "CellUI",
-      ]
-    );
+    return <div id="cell-ui">CellUI</div>
   }
 }
 

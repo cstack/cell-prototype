@@ -1,3 +1,3 @@
 set -x
-tsc --noImplicitAny client.ts || exit 1
+tsc --noImplicitAny --jsx react client.tsx || exit 1
 browserify client.js -o public/application.js || exit 1
