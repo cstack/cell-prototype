@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+# `tsc index.ts`
+# `tsc simulate.ts`
+
+expected_path = "simulation_tests/line/expected.txt"
+actual_path = "simulation_tests/line/actual.txt"
+
+actual = `node simulate.js line`
+File.write(actual_path, actual)
+
+expected = File.read(expected_path)
+if actual != expected
+  puts "ERROR"
+  puts actual_path
+end
