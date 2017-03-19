@@ -25,17 +25,37 @@ interface Cell {
 };
 
 interface Coordinates {
-  row: number,
   col: number,
+  row: number,
+};
+
+interface ParseResult {
+  errors: Array<string>,
+  program: Program,
+  success: boolean,
+};
+
+interface Program {
 };
 
 interface Space {
   cell: Cell,
 };
 
+function parse(programText: string): ParseResult {
+  return {
+    errors: [],
+    program: {},
+    success: true,
+  };
+}
+
 export {
   Board,
   Cell,
   Coordinates,
+  ParseResult,
+  Program,
   Space,
+  parse,
 };
