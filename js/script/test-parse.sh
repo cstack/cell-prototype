@@ -1,0 +1,4 @@
+set -x
+tsc test/parse.ts || exit 1
+./node_modules/.bin/mocha test/parse.js || exit 1
+echo "All parse tests passed."

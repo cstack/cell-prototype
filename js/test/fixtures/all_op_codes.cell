@@ -1,0 +1,9 @@
+- ACTIVATE UP R
+- DIE
+- JUMP test
+- JUMP_IF_TRUE test
+- LABEL test
+- SENSE_CELL UP
+- SLEEP
+- SPLIT UP
+- SUPPRESS UP R
