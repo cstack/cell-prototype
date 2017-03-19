@@ -32,7 +32,6 @@ class CellUI extends React.Component<CellUIProps, CellUIState> {
     return <div id="cell-ui">
       <Board board={this.state.board} onSpaceSelected={this.onSpaceSelected} focusedCoordinates={this.state.focusedCoordinates} />
       <Sidebar programText={this.state.programText} selectedCell={selectedCell}/>
-      <pre>{this.state.programText}</pre>
     </div>;
   }
   onSpaceSelected() {

@@ -1,6 +1,8 @@
 import * as React from "react";
 import * as Engine from "../engine";
 
+import BoardSpace from "./board_space";
+
 interface BoardProps {
   board: Engine.Board,
   focusedCoordinates: Engine.Coordinates,
@@ -14,7 +16,15 @@ class Board extends React.Component<BoardProps, BoardState> {
     super(props);
   }
   render() {
-    return <div id="board">"Board"</div>;
+    let boardRows = [];
+    for (let i = 0; i < this.props.board.numRows; i++) {
+      let boardRow = [];
+      for (let j = 0; j < this.props.board.numCols; j++) {
+        boardRow.push(<BoardSpace />);
+      }
+      boardRows.push(<div className="board-row">{boardRow}</div>);
+    }
+    return <div id="board">{boardRows}</div>;
   }
 }
 
