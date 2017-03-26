@@ -12,7 +12,8 @@ it("parses an empty file", function() {
     success: true,
     errors: [],
     program: {
-      commands: []
+      commands: [],
+      text: programText,
     },
   });
 });
@@ -72,6 +73,7 @@ it("parses every op code", function() {
           parameters: ["UP", "R"],
         },
       ],
+      text: programText,
     },
   });
 });
@@ -85,6 +87,7 @@ it("errors on unrecognized op code", function() {
     errors: ["Unknown op code UNKNOWN_OP_CODE"],
     program: {
       commands: [],
+      text: programText,
     },
   });
 });
@@ -129,6 +132,7 @@ it("parses every color", function() {
           parameters: ['UP', 'O'],
         },
       ],
+      text: programText,
     }
   });
 });
@@ -142,6 +146,7 @@ it("errors on unrecognized color", function() {
     errors: ["Unknown color Z"],
     program: {
       commands: [],
+      text: programText,
     },
   });
 });
@@ -158,6 +163,7 @@ it("typechecks number of parameters", function() {
     ],
     program: {
       commands: [],
+      text: programText,
     },
   });
 });
@@ -185,6 +191,7 @@ it("typechecks directional parameters", function() {
           parameters: ["SELF","R"],
         },
       ],
+      text: programText,
     }
   });
 });
@@ -207,6 +214,7 @@ it("typechecks color parameters", function() {
           parameters: ["UP", "R"],
         },
       ],
+      text: programText,
     },
   });
 });

@@ -3,7 +3,8 @@ import * as Engine from "../engine";
 import Command from "./command";
 
 interface CommandListProps {
-  commands: Array<Engine.Command>,
+  cell: Engine.Cell,
+  program: Engine.Program,
 };
 interface CommandListState {
 };
@@ -13,7 +14,7 @@ class CommandList extends React.Component<CommandListProps, CommandListState> {
     super(props);
   }
   render() {
-    let listItems = this.props.commands.map((command, i) => 
+    let listItems = this.props.program.commands.map((command, i) =>
       <li key={`command-list-${i}`}>
         <Command command={command} />
       </li>

@@ -67,7 +67,6 @@ class Board {
 };
 
 interface Cell {
-  program: Program,
   activeMap: Array<boolean>
 };
 
@@ -146,7 +145,8 @@ interface ParseResult {
 };
 
 interface Program {
-  commands: Array<Command>
+  commands: Array<Command>,
+  text: string,
 };
 
 interface Space {
@@ -241,7 +241,10 @@ function parse(programText: string): ParseResult {
 
   return {
     success: errors.length == 0,
-    program: {commands: commands},
+    program: {
+      commands: commands,
+      text: programText,
+    },
     errors: errors,
   };
 }

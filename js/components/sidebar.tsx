@@ -5,45 +5,44 @@ import ProgramEditor from "./program_editor";
 import CellDetail from "./cell_detail";
 
 interface SidebarProps {
-  programText: string,
+  program: Engine.Program,
   selectedCell: Engine.Cell,
+  isEditingProgram: boolean,
+  handleUpdatedProgram: (program: Engine.Program) => void,
+  handleEditProgram: ()=>void,
 };
 interface SidebarState {
-  isEditingProgram: boolean,
 };
 
 class Sidebar extends React.Component<SidebarProps, SidebarState> {
   constructor(props: SidebarProps) {
     super(props);
-    this.state = {isEditingProgram: true};
-
-    this.handleUpdatedProgram = this.handleUpdatedProgram.bind(this);
-    this.handleEditProgram = this.handleEditProgram.bind(this);
+    this.state = {isEditingProgram: this.props.isEditingProgram};
   }
   render() {
     let children = [];
-    if (this.state.isEditingProgram) {
-      children.push(<ProgramEditor key="program-editor" programText={this.props.programText} handleUpdatedProgram={this.handleUpdatedProgram} />);
+    if (this.props.isEditingProgram) {
+      children.push(
+        <ProgramEditor key="program-editor"
+          programText={this.props.program.text}
+          handleUpdatedProgram={this.props.handleUpdatedProgram}
+        />
+      );
     } else {
-      children.push(<CellDetail key="cell-detail" selectedCell={this.props.selectedCell} />);
+      children.push(
+        <CellDetail key="cell-detail"
+          program={this.props.program}
+          selectedCell={this.props.selectedCell}
+        />
+      );
       children.push(
         <div key="edit-program-button">
-          <button className="big-button" onClick={this.handleEditProgram} >Edit Program</button>
+          <button className="big-button" onClick={this.props.handleEditProgram} >Edit Program</button>
         </div>
       );
     }
 
     return <div id="sidebar">{children}</div>;
-  }
-  handleUpdatedProgram() {
-    this.setState({
-      isEditingProgram: false
-    });
-  }
-  handleEditProgram() {
-    this.setState({
-      isEditingProgram: true
-    });
   }
 }
 
