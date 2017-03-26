@@ -153,6 +153,15 @@ interface Space {
   cell: Cell,
 };
 
+function commandToString(command: Command): string {
+  let result: string = `${Color[command.color]} ${OpCode[command.opCode]}`;
+  command.parameters.forEach(parameter => {
+    result += ` ${parameter}`;
+  });
+
+  return result;
+}
+
 function expectedParamtersForOpcode(opCode: OpCode): Array<ParameterType> {
   switch (opCode) {
     case OpCode.ACTIVATE:
@@ -241,10 +250,12 @@ export {
   Board,
   Cell,
   Color,
+  Command,
   Coordinates,
   OpCode,
   ParseResult,
   Program,
   Space,
+  commandToString,
   parse,
 };
