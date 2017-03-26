@@ -34,7 +34,8 @@ class CellUI extends React.Component<CellUIProps, CellUIState> {
       <Sidebar programText={this.state.programText} selectedCell={selectedCell}/>
     </div>;
   }
-  onSpaceSelected() {
+  onSpaceSelected(coordinates: Engine.Coordinates) {
+    this.setState({focusedCoordinates: coordinates});
   }
 }
 

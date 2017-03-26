@@ -3,6 +3,8 @@ import * as Engine from "../engine";
 
 interface BoardSpaceProps {
   space: Engine.Space,
+  focused: boolean,
+  onClick: ()=>void,
 };
 interface BoardSpaceState {
 };
@@ -12,11 +14,16 @@ class BoardSpace extends React.Component<BoardSpaceProps, BoardSpaceState> {
     super(props);
   }
   render() {
-    let className = "board-space";
+    let classNames = ["board-space"];
     if (this.props.space.cell !== undefined) {
-      className += " board-space-cell";
+      classNames.push("board-space-cell");
+    } else {
+      classNames.push("board-space-empty");
     }
-    return <div className={className}></div>;
+    if (this.props.focused) {
+      classNames.push("board-space-focused");
+    }
+    return <div className={classNames.join(" ")} onClick={this.props.onClick}></div>;
   }
 }
 
