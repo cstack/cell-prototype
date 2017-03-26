@@ -67,7 +67,11 @@ class Board {
 };
 
 interface Cell {
-  activeMap: Array<boolean>
+  activeMap: Array<boolean>,
+  address: Coordinates,
+  id: number,
+  isNew: boolean,
+  programCounter: number,
 };
 
 enum Color {
@@ -196,6 +200,26 @@ function expectedParamtersForOpcode(opCode: OpCode): Array<ParameterType> {
   }
 }
 
+function initialState(program: Program): State {
+  let board: Board = new Board();
+  let firstCell: Cell = {
+    programCounter: 0,
+    id: 0,
+    activeMap: program.commands.map(()=>true),
+    address: {row: 4, col: 4},
+    isNew: true
+  };
+  board.center().cell = firstCell;
+  let cells = [firstCell];
+
+  return {
+    board: board,
+    cells: [firstCell],
+    nextId: 1,
+    program: program
+  };
+}
+
 function parse(programText: string): ParseResult {
   let lines = programText.split("\n");
   let nonEmptyLines = lines.filter(function(line){
@@ -262,13 +286,8 @@ function parse(programText: string): ParseResult {
 
 function simulate(program: Program): Simulation {
   let states: Array<State> = [];
-  let state: State = {
-    board: undefined,
-    cells: undefined,
-    nextId: undefined,
-    program: undefined,
-  };
-  var cyclesElapsed = 0;
+  let state: State = initialState(program);;
+  let cyclesElapsed = 0;
   while (cyclesElapsed < 20) {
     states.push(state);
     state = state;
@@ -289,6 +308,7 @@ export {
   ParseResult,
   Program,
   Space,
+  State,
   commandToString,
   parse,
   simulate,
