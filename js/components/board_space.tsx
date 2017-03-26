@@ -2,6 +2,7 @@ import * as React from "react";
 import * as Engine from "../engine";
 
 interface BoardSpaceProps {
+  space: Engine.Space,
 };
 interface BoardSpaceState {
 };
@@ -11,7 +12,11 @@ class BoardSpace extends React.Component<BoardSpaceProps, BoardSpaceState> {
     super(props);
   }
   render() {
-    return <div className={"board-space"}></div>;
+    let className = "board-space";
+    if (this.props.space.cell !== undefined) {
+      className += " board-space-cell";
+    }
+    return <div className={className}></div>;
   }
 }
 

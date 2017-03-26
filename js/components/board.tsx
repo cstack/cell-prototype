@@ -20,7 +20,7 @@ class Board extends React.Component<BoardProps, BoardState> {
     for (let i = 0; i < this.props.board.numRows; i++) {
       let boardRow = [];
       for (let j = 0; j < this.props.board.numCols; j++) {
-        boardRow.push(<BoardSpace key={`board-space-${i}-${j}`}/>);
+        boardRow.push(<BoardSpace key={`board-space-${i}-${j}`} space={this.props.board.spaces[i][j]} />);
       }
       boardRows.push(<div key={`board-row-${i}`} className="board-row">{boardRow}</div>);
     }
