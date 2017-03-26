@@ -1,0 +1,21 @@
+Cycle 0
+printState()Cycle 1
+printState()Cycle 2
+printState()Cycle 3
+printState()Cycle 4
+printState()Cycle 5
+printState()Cycle 6
+printState()Cycle 7
+printState()Cycle 8
+printState()Cycle 9
+printState()Cycle 10
+printState()Cycle 11
+printState()Cycle 12
+printState()Cycle 13
+printState()Cycle 14
+printState()Cycle 15
+printState()Cycle 16
+printState()Cycle 17
+printState()Cycle 18
+printState()Cycle 19
+printState()

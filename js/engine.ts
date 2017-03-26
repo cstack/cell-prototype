@@ -149,6 +149,17 @@ interface Program {
   text: string,
 };
 
+interface State {
+  board: Board,
+  cells: Array<Cell>,
+  nextId: number,
+  program: Program,
+}
+
+interface Simulation {
+  states: Array<State>
+};
+
 interface Space {
   cell: Cell,
 };
@@ -249,6 +260,25 @@ function parse(programText: string): ParseResult {
   };
 }
 
+function simulate(program: Program): Simulation {
+  let states: Array<State> = [];
+  let state: State = {
+    board: undefined,
+    cells: undefined,
+    nextId: undefined,
+    program: undefined,
+  };
+  var cyclesElapsed = 0;
+  while (cyclesElapsed < 20) {
+    states.push(state);
+    state = state;
+    cyclesElapsed += 1;
+  }
+  return {
+    states: states,
+  };
+}
+
 export {
   Board,
   Cell,
@@ -261,4 +291,5 @@ export {
   Space,
   commandToString,
   parse,
+  simulate,
 };

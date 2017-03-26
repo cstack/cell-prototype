@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+expected_path = "test/fixtures/simulations/line/expected.txt"
+actual_path = "test/fixtures/simulations/line/actual.txt"
+
+puts "Compling simulator..."
+system("tsc test/simulate.ts") || exit(false)
+
+puts "Running simulator..."
+actual = `node test/simulate.js line`
+
+puts "Comparing outputs..."
+File.write(actual_path, actual)
+
+expected = File.read(expected_path)
+if actual != expected
+  puts "ERROR"
+  puts actual_path
+  exit(false)
+end
+
+puts "All simulation tests passed"
