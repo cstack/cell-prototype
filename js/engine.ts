@@ -60,9 +60,15 @@ class Board {
   at(pos: Coordinates): Space {
     return this.spaces[pos.row][pos.col];
   }
+
+  center(): Space {
+    return this.at({row: Math.floor(this.numRows/2), col: Math.floor(this.numCols/2)})
+  }
 };
 
 interface Cell {
+  program: Program,
+  activeMap: Array<boolean>
 };
 
 enum Color {
@@ -140,6 +146,7 @@ interface ParseResult {
 };
 
 interface Program {
+  commands: Array<Command>
 };
 
 interface Space {
@@ -225,7 +232,7 @@ function parse(programText: string): ParseResult {
 
   return {
     success: errors.length == 0,
-    program: commands,
+    program: {commands: commands},
     errors: errors,
   };
 }
