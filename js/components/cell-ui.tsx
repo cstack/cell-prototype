@@ -27,6 +27,10 @@ class CellUI extends React.Component<CellUIProps, CellUIState> {
     let board: Engine.Board = props.board;
     board.center().cell = {
       activeMap: activeMap,
+      address: {row:4,col:4},
+      id: 0,
+      isNew: true,
+      programCounter: 0,
     };
     this.state = {
       board: props.board,
