@@ -1,8 +1,9 @@
 import * as React from "react";
 import * as Engine from "../engine";
 
-import ProgramEditor from "./program_editor";
 import CellDetail from "./cell_detail";
+import ProgramEditor from "./program_editor";
+import SimulationControls from "./simulation_controls";
 
 interface SidebarProps {
   program: Engine.Program,
@@ -10,6 +11,9 @@ interface SidebarProps {
   isEditingProgram: boolean,
   handleUpdatedProgram: (program: Engine.Program) => void,
   handleEditProgram: ()=>void,
+  onBackClicked: ()=>void,
+  onForwardClicked: ()=>void,
+  stateCounter: number,
 };
 interface SidebarState {
 };
@@ -39,6 +43,13 @@ class Sidebar extends React.Component<SidebarProps, SidebarState> {
         <div key="edit-program-button">
           <button className="big-button" onClick={this.props.handleEditProgram} >Edit Program</button>
         </div>
+      );
+      children.push(
+        <SimulationControls key="simulation-controls"
+          onBackClicked={this.props.onBackClicked}
+          onForwardClicked={this.props.onForwardClicked}
+          stateCounter={this.props.stateCounter}
+        />
       );
     }
 

@@ -41,31 +41,10 @@ const stringParamter: ParameterType = {
 }
 
 // Models
-class Board {
-  spaces: Array<Array<Space>>;
-  numRows: number;
-  numCols: number;
-
-  constructor() {
-    this.numRows = 9;
-    this.numCols = 9;
-    this.spaces = [];
-    for (let i = 0; i < this.numRows; i++) {
-      let row: Array<Space> = [];
-      for (let j = 0; j < this.numCols; j++) {
-        row.push({cell: undefined});
-      }
-      this.spaces.push(row);
-    }
-  }
-
-  at(pos: Coordinates): Space {
-    return this.spaces[pos.row][pos.col];
-  }
-
-  center(): Space {
-    return this.at({row: Math.floor(this.numRows/2), col: Math.floor(this.numCols/2)})
-  }
+interface Board {
+  spaces: Array<Array<Space>>,
+  numRows: number,
+  numCols: number,
 };
 
 interface Cell {
@@ -170,6 +149,10 @@ interface Space {
   cell: Cell,
 };
 
+function atPos(board: Board, pos: Coordinates) {
+  return board.spaces[pos.row][pos.col];
+}
+
 function commandToString(command: Command): string {
   let result: string = `${Color[command.color]} ${OpCode[command.opCode]}`;
   command.parameters.forEach(parameter => {
@@ -203,7 +186,7 @@ function expectedParamtersForOpcode(opCode: OpCode): Array<ParameterType> {
 }
 
 function initialState(program: Program): State {
-  let board: Board = new Board();
+  let board: Board = newBoard(9, 9);
   let firstCell: Cell = {
     programCounter: 0,
     id: 0,
@@ -211,7 +194,7 @@ function initialState(program: Program): State {
     address: {row: 4, col: 4},
     isNew: true
   };
-  board.center().cell = firstCell;
+  atPos(board, firstCell.address).cell = firstCell;
   let cells = [firstCell];
 
   return {
@@ -220,6 +203,22 @@ function initialState(program: Program): State {
     nextId: 1,
     program: program
   };
+}
+
+function newBoard(numRows: number, numCols: number): Board {
+  let spaces: Array<Array<Space>> = [];
+  for (let i = 0; i < numRows; i++) {
+    let row: Array<Space> = [];
+    for (let j = 0; j < numCols; j++) {
+      row.push({cell: undefined});
+    }
+    spaces.push(row);
+  }
+  return {
+    numRows: numRows,
+    numCols: numCols,
+    spaces: spaces,
+  }
 }
 
 function nextActiveCommand(programCounter: number, activeMap: Array<boolean>): number {
@@ -405,6 +404,7 @@ export {
   Simulation,
   Space,
   State,
+  atPos,
   commandToString,
   parse,
   simulate,
