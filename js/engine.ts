@@ -1,3 +1,5 @@
+import Utils from "./utils";
+
 // Parameter Types
 const colorParamter: ParameterType = {
   name: 'color',
@@ -220,6 +222,62 @@ function initialState(program: Program): State {
   };
 }
 
+function nextActiveCommand(programCounter: number, activeMap: Array<boolean>): number {
+  if (activeMap.every((b)=>!b)) {
+    return programCounter;
+  }
+  programCounter = (programCounter+1)%activeMap.length;
+  while (!activeMap[programCounter]) {
+    programCounter = (programCounter+1)%activeMap.length;
+  }
+
+  return programCounter;
+}
+
+function nextState(currentState: State): State {
+  let program: Program = currentState.program;
+  let board: Board = Utils.clone(currentState.board);
+  let cells: Array<Cell> = Utils.clone(currentState.cells);
+  let newState: State = {
+    board: board,
+    cells: cells,
+    nextId: currentState.nextId,
+    program: program
+  };
+
+  newState.cells.forEach((cell) => {
+    cell.isNew = false;
+  });
+
+  newState.cells.forEach((cell) => {
+    if (cell.isNew) { return; }
+    if (cell.activeMap[cell.programCounter] === true) {
+      let command: Command = program.commands[cell.programCounter];
+      if (command.opCode == OpCode.SPLIT) {
+        let direction: Direction = stringToDirection(command.parameters[0]);
+        let target: Coordinates = relativeSpace(board, cell.address, direction);
+        if (target !== undefined && board.spaces[target.row][target.col].cell === undefined) {
+          let newCell: Cell = {
+            programCounter: 0,
+            id: newState.nextId,
+            activeMap: Utils.clone(cell.activeMap),
+            address: target,
+            isNew: true
+          }
+          newState.nextId += 1;
+          board.spaces[target.row][target.col].cell = newCell;
+          cells.push(newCell);
+        }
+      } else {
+        throw `Unknown opCode ${command.opCode}`;
+      }
+    }
+    cell.programCounter = nextActiveCommand(cell.programCounter, cell.activeMap);
+  });
+
+  return newState;
+}
+
 function parse(programText: string): ParseResult {
   let lines = programText.split("\n");
   let nonEmptyLines = lines.filter(function(line){
@@ -284,18 +342,55 @@ function parse(programText: string): ParseResult {
   };
 }
 
+function relativeSpace(board: Board, address: Coordinates, direction: Direction): Coordinates {
+  let loc: Coordinates = Utils.clone(address);
+  if (direction === Direction.UP) {
+    loc.row -= 1;
+  } else if (direction === Direction.DOWN) {
+    loc.row += 1;
+  } else if (direction === Direction.RIGHT) {
+    loc.col += 1;
+  } else if (direction === Direction.LEFT) {
+    loc.col -= 1;
+  } else {
+    throw `Unknown direction ${direction}`
+  }
+
+  if (loc.row >= board.numRows || loc.row < 0) {
+    return undefined;
+  } else if (loc.col >= board.numCols || loc.col < 0) {
+    return undefined;
+  } else {
+    return loc;
+  }
+}
+
 function simulate(program: Program): Simulation {
   let states: Array<State> = [];
   let state: State = initialState(program);;
   let cyclesElapsed = 0;
   while (cyclesElapsed < 20) {
     states.push(state);
-    state = state;
+    state = nextState(state);
     cyclesElapsed += 1;
   }
   return {
     states: states,
   };
+}
+
+function stringToDirection(s: String): Direction {
+  if (s === Direction[Direction.DOWN]) {
+    return Direction.DOWN;
+  } else if (s === Direction[Direction.LEFT]) {
+    return Direction.LEFT;
+  } else if (s === Direction[Direction.RIGHT]) {
+    return Direction.RIGHT;
+  } else if (s === Direction[Direction.SELF]) {
+    return Direction.SELF;
+  } else if (s === Direction[Direction.UP]) {
+    return Direction.UP;
+  }
 }
 
 export {
@@ -307,6 +402,7 @@ export {
   OpCode,
   ParseResult,
   Program,
+  Simulation,
   Space,
   State,
   commandToString,

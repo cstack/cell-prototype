@@ -4,7 +4,7 @@ expected_path = "test/fixtures/simulations/line/expected.txt"
 actual_path = "test/fixtures/simulations/line/actual.txt"
 
 puts "Compling simulator..."
-system("tsc test/simulate.ts") || exit(false)
+system("tsc --noImplicitAny test/simulate.ts") || exit(false)
 
 puts "Running simulator..."
 actual = `node test/simulate.js line`

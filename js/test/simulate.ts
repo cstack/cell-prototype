@@ -36,7 +36,7 @@ function printState(state: Engine.State): void {
   });
 }
 
-function printSimulation(simulation): void {
+function printSimulation(simulation: Engine.Simulation): void {
   simulation.states.forEach(function(state, cycle) {
     process.stdout.write(`Cycle ${cycle}\n`);
     printState(state);
