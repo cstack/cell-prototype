@@ -5,7 +5,7 @@ import Utils from "../utils";
 declare var process: any;
 
 let fixtureName = process.argv[2];
-let programText = TestUtils.bufferFile(`simulation_tests/${fixtureName}/program.cell`);
+let programText = TestUtils.bufferFile(`fixtures/simulations/${fixtureName}/program.cell`);
 let program = Engine.parse(programText).program;
 let simulation = Engine.simulate(program);
 
@@ -23,9 +23,10 @@ function printState(state: Engine.State): void {
   });
   state.cells.forEach((cell, i) => {
     process.stdout.write(`${Utils.pad(cell.id, 2)}\n`);
-
     state.program.commands.forEach((command, j) => {
-      if (cell.programCounter == j) {
+      if (cell.activeMap[j] === false) {
+        process.stdout.write("  X ");
+      } else if (cell.programCounter == j) {
         process.stdout.write("--> ");
       } else {
         process.stdout.write("    ");

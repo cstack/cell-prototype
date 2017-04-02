@@ -235,8 +235,26 @@ function nextActiveCommand(programCounter: number, activeMap: Array<boolean>): n
 
 function nextState(currentState: State): State {
   let program: Program = currentState.program;
-  let board: Board = Utils.clone(currentState.board);
   let cells: Array<Cell> = Utils.clone(currentState.cells);
+  let board: Board = Utils.clone(currentState.board);
+
+  // Need to patch up pointers to objects
+  for (let rowNum = 0; rowNum < board.numRows; rowNum++) {
+    for (let colNum = 0; colNum < board.numCols; colNum++) {
+      let space = board.spaces[rowNum][colNum];
+      if (space.cell !== undefined) {
+        let id = space.cell.id;
+        let cell: Cell = undefined;
+        for (let i = 0; i < cells.length; i++) {
+          if (cells[i].id === id) {
+            space.cell = cells[i];
+            break;
+          }
+        }
+      }
+    }
+  }
+
   let newState: State = {
     board: board,
     cells: cells,
@@ -267,6 +285,17 @@ function nextState(currentState: State): State {
           board.spaces[target.row][target.col].cell = newCell;
           cells.push(newCell);
         }
+      } else if (command.opCode == OpCode.SUPPRESS) {
+        let direction: Direction = stringToDirection(command.parameters[0]);
+        let target: Coordinates = relativeSpace(board, cell.address, direction);
+        if (target === undefined) { return; }
+        let color: Color = stringToColor(command.parameters[1]);
+        let targetCell: Cell = board.spaces[target.row][target.col].cell;
+        if (target !== undefined && targetCell !== undefined) {
+          suppress(targetCell, color, program);
+        }
+      } else if (command.opCode == OpCode.DIE) {
+      } else if (command.opCode == OpCode.SLEEP) {
       } else {
         throw `Unknown opCode ${command.opCode}`;
       }
@@ -351,6 +380,8 @@ function relativeSpace(board: Board, address: Coordinates, direction: Direction)
     loc.col += 1;
   } else if (direction === Direction.LEFT) {
     loc.col -= 1;
+  } else if (direction === Direction.SELF) {
+    // No change
   } else {
     throw `Unknown direction ${direction}`
   }
@@ -378,6 +409,22 @@ function simulate(program: Program): Simulation {
   };
 }
 
+function stringToColor(s: String): Color {
+  if (s === Color[Color.B]) {
+    return Color.B;
+  } else if (s === Color[Color.G]) {
+    return Color.G;
+  } else if (s === Color[Color.O]) {
+    return Color.O;
+  } else if (s === Color[Color.P]) {
+    return Color.P;
+  } else if (s === Color[Color.R]) {
+    return Color.R;
+  } else if (s === Color[Color.Y]) {
+    return Color.Y;
+  }
+}
+
 function stringToDirection(s: String): Direction {
   if (s === Direction[Direction.DOWN]) {
     return Direction.DOWN;
@@ -389,6 +436,15 @@ function stringToDirection(s: String): Direction {
     return Direction.SELF;
   } else if (s === Direction[Direction.UP]) {
     return Direction.UP;
+  }
+}
+
+function suppress(cell: Cell, color: Color, program: Program) {
+  for (let i = 0; i < program.commands.length; i++) {
+    let command = program.commands[i];
+    if (command.color === color) {
+      cell.activeMap[i] = false;
+    }
   }
 }
 

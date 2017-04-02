@@ -1,0 +1,536 @@
+Cycle 0
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+    B SPLIT UP
+    B SUPPRESS UP B
+Cycle 1
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+    B SPLIT UP
+    B SUPPRESS UP B
+01
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+    B SPLIT UP
+    B SUPPRESS UP B
+Cycle 2
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+    B SPLIT UP
+    B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+Cycle 3
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+    B SUPPRESS UP B
+Cycle 4
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 5
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 6
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 7
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 8
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 9
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 10
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 11
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 12
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 13
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 14
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 15
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 16
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 17
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+    R SUPPRESS UP R
+--> R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 18
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+--> R SPLIT UP
+    R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+--> B SPLIT UP
+    B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+Cycle 19
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. 02 .. .. .. .. 
+.. .. .. .. 01 .. .. .. .. 
+.. .. .. .. 00 .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+.. .. .. .. .. .. .. .. .. 
+00
+    R SPLIT UP
+--> R SUPPRESS UP R
+    R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
+01
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+    B SPLIT UP
+--> B SUPPRESS UP B
+02
+  X R SPLIT UP
+  X R SUPPRESS UP R
+  X R SUPPRESS SELF B
+  X B SPLIT UP
+  X B SUPPRESS UP B
