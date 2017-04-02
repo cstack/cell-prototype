@@ -1,0 +1,3 @@
+set -x
+./script/build-client || exit 1
+./script/build-server || exit 1
